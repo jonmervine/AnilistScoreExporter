@@ -1,0 +1,19 @@
+query testGet {
+	MediaListCollection(userId: 120727, status: CURRENT, type:ANIME) {
+    lists {
+      name
+      entries {
+        progress
+        media {
+          title {
+            romaji
+            english
+            native
+            userPreferred
+          }
+          episodes
+        }
+      }
+    }
+  }
+}
