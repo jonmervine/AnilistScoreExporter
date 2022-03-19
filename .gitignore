@@ -12,3 +12,6 @@ target/
 bin/
 build/
 .gradle/
+
+#Properties Specific
+local.properties

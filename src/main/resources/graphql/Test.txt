@@ -1,15 +1,13 @@
-query testGet {
-	MediaListCollection(userId: 120727, status: CURRENT, type:ANIME) {
+query {
+	MediaListCollection(userId: $userId, status: PAUSED, type:ANIME) {
     lists {
       name
       entries {
         progress
         media {
+          id
           title {
-            romaji
             english
-            native
-            userPreferred
           }
           episodes
         }
