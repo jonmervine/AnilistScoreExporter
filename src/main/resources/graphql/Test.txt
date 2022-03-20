@@ -1,4 +1,4 @@
-query {
+query test($userId: Int!) {
 	MediaListCollection(userId: $userId, status: PAUSED, type:ANIME) {
     lists {
       name

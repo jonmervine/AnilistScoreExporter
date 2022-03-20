@@ -5,9 +5,10 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.*
 
-class Config private constructor (
+class Config private constructor(
     private val accessToken: String,
     private val code: String,
+    private val userId: String,
     private val anilistUrls: AnilistUrls,
     private val appInfo: AppInfo
 ) {
@@ -18,11 +19,12 @@ class Config private constructor (
         val tokenUrl: String
     )
 
-    data class AppInfo(val clientId: String,
-                val secret: String,
-                val appName: String,
-                val redirectUrl: String
-                )
+    data class AppInfo(
+        val clientId: String,
+        val secret: String,
+        val appName: String,
+        val redirectUrl: String
+    )
 
     /**
      * Statically allows the construction and reading of properties
@@ -38,6 +40,7 @@ class Config private constructor (
             return Config(
                 prop["accessToken"].toString(),
                 prop["code"].toString(),
+                prop["userId"].toString(),
                 AnilistUrls(
                     prop["baseUrl"].toString(),
                     prop["authorizeUrl"].toString(),
@@ -67,7 +70,8 @@ class Config private constructor (
      */
     operator fun component1() = accessToken
     operator fun component2() = code
-    operator fun component3() = anilistUrls
-    operator fun component4() = appInfo
+    operator fun component3() = userId
+    operator fun component4() = anilistUrls
+    operator fun component5() = appInfo
 }
 

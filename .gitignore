@@ -15,3 +15,5 @@ build/
 
 #Properties Specific
 local.properties
+
+backup*.txt

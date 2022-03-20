@@ -1,4 +1,4 @@
-query {
+query getAnime($userId: Int!) {
 	MediaListCollection(userId: $userId, type:ANIME ) {
     hasNextChunk
     lists {

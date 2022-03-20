@@ -29,7 +29,7 @@ class SetupProject {
     private val config = Config()
 
     fun start() {
-        val (_, code, anilistUrls, appInfo) = config
+        val (_, code, _, anilistUrls, appInfo) = config
 
         val accessToken = getAccessToken(appInfo, code, anilistUrls.tokenUrl)
         config.updateAccessToken(accessToken.accessToken)
@@ -64,6 +64,7 @@ class SetupProject {
         response.body?.close()
         return AccessTokens(bodyMap["access_token"] as String, bodyMap["refresh_token"] as String)
     }
+
     /**
      * still need to figure out how to do this without a browser
      */
